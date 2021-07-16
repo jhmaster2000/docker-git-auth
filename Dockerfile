@@ -10,7 +10,7 @@ WORKDIR /root
 # Optional wine install
 RUN if [ -n "$WINE" ] ; \
     then dpkg --add-architecture i386 && apt update && apt -y install wine ; \
-    else apt update ;
+    else apt update ; \
     fi
 
 # Extra packages
