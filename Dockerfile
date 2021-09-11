@@ -5,6 +5,7 @@ ARG WINE
 ARG GIT_NAME
 ARG GIT_PAT
 ARG GIT_REPOSITORY
+ARG NPM_SCRIPT
 WORKDIR /root
 
 # Optional wine install
@@ -21,4 +22,4 @@ RUN npm install -g npm@7
 
 # Start app
 CMD git clone https://$GIT_NAME:$GIT_PAT@github.com/$GIT_REPOSITORY.git ./app && \
-    cd app && npm install --save && neofetch && npm start
+    cd app && npm install --save && neofetch && npm run $NPM_SCRIPT
