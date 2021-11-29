@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:16
 ENV NPM_CONFIG_LOGLEVEL notice
 ARG PORT
 ARG WINE
@@ -16,9 +16,6 @@ RUN if [ -n "$WINE" ] ; \
 
 # Extra packages
 RUN apt -y install neofetch
-
-# NPM setup
-RUN npm install -g npm@7
 
 # Start app
 CMD git clone https://$GIT_NAME:$GIT_PAT@github.com/$GIT_REPOSITORY.git ./app && \
